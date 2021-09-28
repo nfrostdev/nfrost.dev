@@ -5,7 +5,7 @@
       <router-link
         :to="{ name: 'Project', params: {uid: project.uid } }"
         class="portfolio__link">
-        <project-image :image="project.data.image" :title="project.data.title[0].text"/>
+        <project-image :image="project.data.image" :title="project.data.title[0].text" class="portfolio__image"/>
       </router-link>
       <router-link
         :to="{ name: 'Project', params: {uid: project.uid } }"
@@ -56,7 +56,7 @@ export default {
 
 <style lang="scss">
 .portfolio {
-  @apply grid place-items-center gap-6 p-6;
+  @apply grid place-items-center gap-12 p-6;
 
   &__link {
     @apply grid place-items-center text-center;
@@ -68,6 +68,10 @@ export default {
     &__technologies {
       @apply flex flex-wrap justify-center items-center;
     }
+  }
+
+  &__image {
+    @apply mb-3;
   }
 }
 </style>

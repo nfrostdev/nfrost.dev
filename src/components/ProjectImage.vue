@@ -1,6 +1,7 @@
 <template>
   <img :src="image.url.replace('?auto=compress,format&rect=0,0,3200,2000&w=768&h=480', '')"
        :alt="title + ' Screenshot'"
+       class="project-image"
        loading="lazy"
        :srcset="
               image.Small.url + '&q=100 ' +image.Small.dimensions.width + 'w, ' +
@@ -26,3 +27,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.project-image {
+  @apply rounded-md shadow-md;
+  @media (min-width: 1024px) {
+    width: 768px;
+    height: 480px;
+  }
+}
+</style>
