@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 html {
-  @apply bg-gray-200;
+  @apply bg-gray-200 font-light;
+  font-family: 'Titillium Web', sans-serif;
 }
