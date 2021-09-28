@@ -20,11 +20,12 @@
 }
 
 .nav {
-  @apply grid grid-cols-4 font-semibold rounded overflow-hidden shadow text-xs;
-  @apply sm:text-base;
+  @apply fixed bottom-0 mb-8 grid grid-cols-4 font-semibold rounded overflow-hidden shadow text-sm;
+  @apply sm:text-base sm:relative sm:bottom-auto sm:mb-0;
 
   &__link {
-    @apply grid place-items-center text-gray-700 px-4 py-3 bg-white transition duration-200;
+    @apply grid place-items-center text-gray-700 px-3 py-2 bg-white transition duration-200;
+    @apply sm:px-4 sm:py-3;
 
     &:hover, &:focus, &.router-link-exact-active {
       @apply bg-nf-blue text-white;
