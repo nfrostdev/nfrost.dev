@@ -33,7 +33,6 @@ export default {
   @apply rounded-md shadow-md;
   @media (min-width: 1024px) {
     width: 768px;
-    height: 480px;
   }
 }
 </style>
