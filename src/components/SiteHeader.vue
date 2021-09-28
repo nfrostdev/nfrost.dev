@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img src="@/assets/images/logo.svg" alt="NF Logo" class="header__logo"/>
+    <img src="@/assets/images/logo.svg" alt="NF Logo" class="header__logo" width="78" height="48"/>
     <nav class="nav">
       <router-link :to="{ name: 'Portfolio'}" class="nav__link">Portfolio</router-link>
       <a href="https://www.google.com/" target="_blank" rel="noopener" class="nav__link">Resume</a>
