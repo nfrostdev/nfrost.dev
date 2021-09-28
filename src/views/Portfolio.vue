@@ -1,30 +1,36 @@
 <template>
-  <div class="portfolio">
+  <div v-if="projects.length" class="portfolio">
     <div v-for="project in projects"
          :key="project.id"
          class="portfolio__project">
-      <router-link
-        :to="{ name: 'Project', params: {uid: project.uid } }">
-        <project-image :image="project.data.image" :title="project.data.title[0].text"/>
-      </router-link>
-      <div class="portfolio__container">
+      <transition name="fade-left" mode="in-out">
         <router-link
+          v-if="loaded"
           :to="{ name: 'Project', params: {uid: project.uid } }"
-          class="portfolio__link">
-          <div class="portfolio__link__title" v-if="project.data.title">{{ project.data.title[0].text }}</div>
-          <div class="portfolio__link__client">
+          class="portfolio__link--image">
+          <project-image :image="project.data.image" :title="project.data.title[0].text"/>
+        </router-link>
+      </transition>
+      <transition name="fade-right" mode="in-out">
+        <div class="portfolio__container" v-if="loaded">
+          <router-link
+            :to="{ name: 'Project', params: {uid: project.uid } }"
+            class="portfolio__link">
+            <div class="portfolio__link__title" v-if="project.data.title">{{ project.data.title[0].text }}</div>
+            <div class="portfolio__link__client">
         <span v-for="client in project.data.clients" :key="client.uid" class="portfolio__client">
           {{ client.client.data.name }}
         </span>
-          </div>
-        </router-link>
+            </div>
+          </router-link>
 
-        <div class="portfolio__link__technologies">
-          <technology-link v-for="technology in project.data.technologies"
-                           :key="technology.id"
-                           :technology="technology.technology"/>
+          <div class="portfolio__link__technologies">
+            <technology-link v-for="technology in project.data.technologies"
+                             :key="technology.id"
+                             :technology="technology.technology"/>
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -41,6 +47,7 @@ export default {
   },
   data () {
     return {
+      loaded: false,
       projects: []
     }
   },
@@ -50,6 +57,9 @@ export default {
       { fetchLinks: ['client.name', 'technology.name', 'technology.link'] }
     ).then(response => {
       this.projects = response.results.sort((a, b) => a.first_publication_date < b.first_publication_date ? 1 : -1)
+      setTimeout(() => {
+        this.loaded = true
+      }, 0)
     })
   }
 }
@@ -57,7 +67,7 @@ export default {
 
 <style lang="scss">
 .portfolio {
-  @apply grid place-items-center gap-12 p-6 text-center max-w-5xl mx-auto;
+  @apply grid place-items-center gap-12 p-6 text-center max-w-5xl mx-auto w-full;
 
   &__project {
     @apply flex flex-col justify-center items-center;
@@ -65,27 +75,39 @@ export default {
   }
 
   &__container {
-    @apply grid text-center mt-3 w-80;
-    @apply lg:text-right lg:place-items-end lg:mt-6 lg:mr-6;
+    @apply grid text-center mt-3;
+    @apply lg:text-right lg:place-items-end lg:mt-6 lg:mr-6 lg:w-96;
   }
 
   &__link {
-    @apply grid place-items-center;
+    @apply grid place-items-center transition duration-200;
     @apply lg:place-items-end;
+
+    &:hover, &:focus {
+      @apply text-nf-blue;
+    }
 
     &__title {
       @apply text-lg font-bold;
-      @apply lg:text-3xl;
+      @apply lg:text-3xl lg:pl-2;
     }
 
     &__client {
       @apply mb-2;
-      @apply lg:text-lg;
+      @apply lg:text-xl;
     }
 
     &__technologies {
       @apply flex flex-wrap justify-center items-center;
       @apply lg:justify-end;
+    }
+
+    &--image {
+      @apply filter brightness-95 transition-all duration-300;
+
+      &:hover, &:focus {
+        @apply brightness-100;
+      }
     }
   }
 }
