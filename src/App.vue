@@ -1,7 +1,14 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <site-header/>
+    <router-view/>
   </div>
-  <router-view/>
 </template>
+
+<script>
+import SiteHeader from '@/components/SiteHeader'
+
+export default {
+  components: { SiteHeader }
+}
+</script>
