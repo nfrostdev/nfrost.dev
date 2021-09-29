@@ -7,12 +7,23 @@
           <span>{{ attribute[type].data.name }}</span>
           <span v-if="index !== attributes.length - 1">, </span>
         </span>
-        <a v-if="type === 'contributor'" :href="attribute[type].data.link.url" target="_blank" rel="noopener">
-          {{ attribute[type].data.name }}
-        </a>
+        <span v-if="type === 'contributor'">
+          <a v-if="attribute[type].data.link" :href="attribute[type].data.link.url"
+             target="_blank"
+             rel="noopener"
+             class="project__attribute__link">{{ attribute[type].data.name }}</a>
+          <span v-else>{{ attribute[type].data.name }}</span>
+          <span v-if="index !== attributes.length - 1">, </span>
+        </span>
         <technology-link v-if="type === 'technology'" :technology="attribute[type]"/>
       </span>
     </div>
+  </div>
+  <div v-if="type === 'location' && attributes.url">
+    <div class="project__attribute__title">{{ title }}</div>
+    <a :href="attributes.url" class="project__attribute__link"
+       target="_blank"
+       rel="noopener">{{ attributes.url }}</a>
   </div>
 </template>
 
@@ -24,7 +35,7 @@ export default {
   props: {
     title: String,
     plural: String,
-    attributes: Array,
+    attributes: null,
     type: String
   }
 }
@@ -33,7 +44,11 @@ export default {
 <style lang="scss">
 .project__attribute {
   &__title {
-    @apply font-bold mt-4 mb-1;
+    @apply font-bold mt-4;
+  }
+
+  &__link {
+    @apply text-nf-blue underline font-semibold;
   }
 }
 </style>

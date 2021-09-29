@@ -15,7 +15,7 @@ export default {
 
 <style lang="scss">
 .technology-link {
-  @apply bg-white shadow-sm rounded-sm px-2 py-1 text-sm m-1 transition duration-200;
+  @apply inline-block bg-white shadow-sm rounded-sm px-2 py-1 text-sm m-1 transition duration-200;
 
   &:hover, &:focus {
     @apply bg-nf-blue text-white;

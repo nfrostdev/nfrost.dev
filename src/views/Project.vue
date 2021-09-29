@@ -2,23 +2,26 @@
   <div class="project" v-if="loaded">
     <div class="project__container">
       <div v-html="$prismicDom.RichText.asHtml(project.title)"></div>
+      <project-attribute type="location"
+                         title="Location"
+                         :attributes="project.location"/>
+      <project-attribute type="client"
+                         title="Client"
+                         plural="Clients"
+                         :attributes="project.clients"/>
+      <project-attribute type="contributor"
+                         title="Contributor"
+                         plural="Contributors"
+                         :attributes="project.contributors"/>
+      <project-attribute type="language"
+                         title="Language"
+                         plural="Languages"
+                         :attributes="project.languages"/>
+      <project-attribute type="technology"
+                         title="Technology"
+                         plural="Technologies"
+                         :attributes="project.technologies"/>
     </div>
-    <project-attribute type="client"
-                       title="Client"
-                       plural="Clients"
-                       :attributes="project.clients"/>
-    <project-attribute type="contributor"
-                       title="Contributor"
-                       plural="Contributors"
-                       :attributes="project.contributors"/>
-    <project-attribute type="language"
-                       title="Language"
-                       plural="Languages"
-                       :attributes="project.languages"/>
-    <project-attribute type="technology"
-                       title="Technology"
-                       plural="Technologies"
-                       :attributes="project.technologies"/>
   </div>
 </template>
 
@@ -39,6 +42,7 @@ export default {
         fetchLinks: [
           'client.name',
           'contributor.name',
+          'contributor.link',
           'language.name',
           'technology.name',
           'technology.link'
