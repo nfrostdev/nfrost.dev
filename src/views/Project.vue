@@ -66,7 +66,24 @@ export default {
       }).then(response => {
       this.project = response.data
       this.loaded = true
-      document.title = this.$prismicDom.RichText.asText(this.project.title) + ' | Nick Frost'
+
+      const title = this.$prismicDom.RichText.asText(this.project.title) + ' | Nick Frost'
+      document.title = title
+      document.querySelector('meta[property="og:title"]').setAttribute('content', title)
+      document.querySelector('meta[property="twitter:title"]').setAttribute('content', title)
+
+      const description = this.$prismicDom.RichText.asText(this.project.details)
+      document.querySelector('meta[name="description"]').setAttribute('content', description)
+      document.querySelector('meta[property="og:description"]').setAttribute('content', description)
+      document.querySelector('meta[property="twitter:description"]').setAttribute('content', description)
+
+      const image = this.project.image.url.replace('?auto=compress,format&rect=0,0,3200,2000&w=768&h=480', '')
+      document.querySelector('meta[property="og:image"]').setAttribute('content', image)
+      document.querySelector('meta[property="twitter:image"]').setAttribute('content', image)
+
+      const location = window.location.href
+      document.querySelector('meta[property="og:url"]').setAttribute('content', location)
+      document.querySelector('meta[property="twitter:url"]').setAttribute('content', location)
     })
   }
 }

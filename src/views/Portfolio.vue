@@ -59,7 +59,24 @@ export default {
       this.projects = response.results.sort((a, b) => a.first_publication_date < b.first_publication_date ? 1 : -1)
       setTimeout(() => {
         this.loaded = true
-        document.title = 'Portfolio | Nick Frost'
+
+        const title = 'Portfolio | Nick Frost'
+        document.title = title
+        document.querySelector('meta[property="og:title"]').setAttribute('content', title)
+        document.querySelector('meta[property="twitter:title"]').setAttribute('content', title)
+
+        const description = 'Explore the projects of Nick Frost, a Web Developer in Kalamazoo MI.'
+        document.querySelector('meta[name="description"]').setAttribute('content', description)
+        document.querySelector('meta[property="og:description"]').setAttribute('content', description)
+        document.querySelector('meta[property="twitter:description"]').setAttribute('content', description)
+
+        const image = window.location.origin + '/nf.png'
+        document.querySelector('meta[property="og:image"]').setAttribute('content', image)
+        document.querySelector('meta[property="twitter:image"]').setAttribute('content', image)
+
+        const location = window.location.href
+        document.querySelector('meta[property="og:url"]').setAttribute('content', location)
+        document.querySelector('meta[property="twitter:url"]').setAttribute('content', location)
       }, 0)
     })
   }
