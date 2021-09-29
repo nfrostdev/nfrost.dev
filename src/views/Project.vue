@@ -39,7 +39,6 @@ export default {
         fetchLinks: [
           'client.name',
           'contributor.name',
-          'contributor.link',
           'language.name',
           'technology.name',
           'technology.link'

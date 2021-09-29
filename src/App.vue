@@ -3,7 +3,7 @@
     <site-header/>
     <main id="main" class="main">
       <router-view v-slot="{ Component }">
-        <transition name="fade-up">
+        <transition name="fade" mode="out-in">
           <component :is="Component"/>
         </transition>
       </router-view>
@@ -31,8 +31,8 @@ export default {
 .fade-left-leave-active,
 .fade-right-enter-active,
 .fade-right-leave-active,
-.fade-up-enter-active,
-.fade-up-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: all 0.2s ease;
 }
 
@@ -40,8 +40,8 @@ export default {
 .fade-left-leave-to,
 .fade-right-enter-from,
 .fade-right-leave-to,
-.fade-up-enter-from,
-.fade-up-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
@@ -59,13 +59,5 @@ export default {
 
 .fade-right-enter-from {
   transform: translateX(-2rem);
-}
-
-.fade-up-leave-to {
-  transform: translateY(2rem);
-}
-
-.fade-up-enter-from {
-  transform: translateY(2rem);
 }
 </style>

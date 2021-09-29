@@ -7,6 +7,9 @@
           <span>{{ attribute[type].data.name }}</span>
           <span v-if="index !== attributes.length - 1">, </span>
         </span>
+        <a v-if="type === 'contributor'" :href="attribute[type].data.link.url" target="_blank" rel="noopener">
+          {{ attribute[type].data.name }}
+        </a>
         <technology-link v-if="type === 'technology'" :technology="attribute[type]"/>
       </span>
     </div>
