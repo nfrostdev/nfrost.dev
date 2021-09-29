@@ -3,7 +3,7 @@
     <img src="@/assets/images/logo.svg" alt="NF Logo" class="header__logo" width="78" height="48"/>
     <nav class="nav">
       <router-link :to="{ name: 'Portfolio'}" class="nav__link">Portfolio</router-link>
-      <a href="https://www.google.com/" target="_blank" rel="noopener" class="nav__link">Resume</a>
+      <!--      <a href="https://www.google.com/" target="_blank" rel="noopener" class="nav__link">Resume</a>-->
       <a href="https://github.com/nfrostdev" target="_blank" rel="noopener" class="nav__link">Github</a>
       <a href="mailto:nfrost.dev@gmail.com" target="_blank" rel="noopener" class="nav__link">Contact</a>
     </nav>
@@ -20,7 +20,7 @@
 }
 
 .nav {
-  @apply fixed bottom-0 mb-8 grid grid-cols-4 font-semibold rounded overflow-hidden shadow text-sm z-10;
+  @apply fixed bottom-0 mb-8 grid grid-cols-3 font-semibold rounded overflow-hidden shadow text-sm z-10;
   @apply sm:text-base sm:relative sm:bottom-auto sm:mb-0;
 
   &__link {
