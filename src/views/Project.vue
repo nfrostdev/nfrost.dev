@@ -66,6 +66,7 @@ export default {
       }).then(response => {
       this.project = response.data
       this.loaded = true
+      document.title = this.$prismicDom.RichText.asText(this.project.title) + ' | Nick Frost'
     })
   }
 }

@@ -59,6 +59,7 @@ export default {
       this.projects = response.results.sort((a, b) => a.first_publication_date < b.first_publication_date ? 1 : -1)
       setTimeout(() => {
         this.loaded = true
+        document.title = 'Portfolio | Nick Frost'
       }, 0)
     })
   }
