@@ -70,11 +70,11 @@ export default {
         document.querySelector('meta[property="og:description"]').setAttribute('content', description)
         document.querySelector('meta[property="twitter:description"]').setAttribute('content', description)
 
-        const image = window.location.origin + '/nf.png'
+        const image = 'https://www.nfrost.dev/nf.png'
         document.querySelector('meta[property="og:image"]').setAttribute('content', image)
         document.querySelector('meta[property="twitter:image"]').setAttribute('content', image)
 
-        const location = window.location.href
+        const location = 'https://www.nfrost.dev'
         document.querySelector('meta[property="og:url"]').setAttribute('content', location)
         document.querySelector('meta[property="twitter:url"]').setAttribute('content', location)
       }, 0)

@@ -81,7 +81,7 @@ export default {
       document.querySelector('meta[property="og:image"]').setAttribute('content', image)
       document.querySelector('meta[property="twitter:image"]').setAttribute('content', image)
 
-      const location = window.location.href
+      const location = 'https://www.nfrost.dev' + this.$route.fullPath
       document.querySelector('meta[property="og:url"]').setAttribute('content', location)
       document.querySelector('meta[property="twitter:url"]').setAttribute('content', location)
     })
