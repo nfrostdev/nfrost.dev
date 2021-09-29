@@ -31,8 +31,5 @@ export default {
 <style lang="scss">
 .project-image {
   @apply rounded-md shadow-md;
-  @media (min-width: 1024px) {
-    width: 768px;
-  }
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div class="project" v-if="loaded">
     <div class="project__info">
-      <project-image :image="project.image"/>
+      <div class="project__info__container">
+        <project-image :image="project.image"/>
+      </div>
       <div class="project__container">
         <div v-html="$prismicDom.RichText.asHtml(project.title)"></div>
         <project-attribute type="location"
@@ -62,7 +64,6 @@ export default {
           'technology.link'
         ]
       }).then(response => {
-      console.log(response.data)
       this.project = response.data
       this.loaded = true
     })
@@ -72,7 +73,7 @@ export default {
 
 <style lang="scss">
 .project {
-  @apply p-6 max-w-5xl mx-auto;
+  @apply p-6 max-w-6xl mx-auto;
 
   h1 {
     @apply text-xl font-bold mt-4;
@@ -80,7 +81,16 @@ export default {
   }
 
   &__info {
-    @apply flex flex-col;
+    @apply flex flex-col mb-4;
+    @apply lg:flex-row-reverse lg:justify-between;
+  }
+
+  &__container {
+    @apply lg:w-80 lg:mr-6;
+  }
+
+  &__body {
+    @apply lg:grid lg:grid-cols-3 lg:gap-6;
   }
 }
 </style>
