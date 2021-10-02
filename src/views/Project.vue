@@ -61,7 +61,8 @@ export default {
           'contributor.link',
           'language.name',
           'technology.name',
-          'technology.link'
+          'technology.link',
+          'technology.icon'
         ]
       }).then(response => {
       this.project = response.data
