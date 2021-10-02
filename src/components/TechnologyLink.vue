@@ -16,9 +16,6 @@
 export default {
   props: {
     technology: Object
-  },
-  mounted () {
-    console.log(this.technology)
   }
 }
 </script>
