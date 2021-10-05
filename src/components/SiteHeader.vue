@@ -20,7 +20,7 @@
 }
 
 .nav {
-  @apply fixed bottom-0 mb-8 grid grid-cols-3 font-semibold rounded overflow-hidden shadow text-sm z-10;
+  @apply fixed bottom-0 right-0 left-0 mx-8 mb-8 grid grid-cols-3 font-semibold rounded overflow-hidden shadow text-sm z-10;
   @apply sm:text-base sm:relative sm:bottom-auto sm:mb-0;
 
   &__link {

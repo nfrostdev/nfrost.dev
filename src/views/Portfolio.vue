@@ -54,7 +54,15 @@ export default {
   mounted () {
     this.$prismic.query(
       Prismic.Predicates.at('document.type', 'project'),
-      { fetchLinks: ['client.name', 'technology.name', 'technology.link'] }
+      {
+        fetchLinks:
+          [
+            'client.name',
+            'technology.name',
+            'technology.link',
+            'technology.icon'
+          ]
+      }
     ).then(response => {
       this.projects = response.results.sort((a, b) => a.first_publication_date < b.first_publication_date ? 1 : -1)
       setTimeout(() => {
