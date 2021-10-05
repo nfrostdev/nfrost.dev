@@ -1,5 +1,5 @@
 <template>
-  <div class="project" v-if="loaded">
+  <div v-if="project" class="project">
     <div class="project__info">
       <div class="project__info__container">
         <project-image :image="project.image"/>
@@ -48,7 +48,6 @@ export default {
   },
   data () {
     return {
-      loaded: false,
       project: null
     }
   },
@@ -66,7 +65,6 @@ export default {
         ]
       }).then(response => {
       this.project = response.data
-      this.loaded = true
 
       const title = this.$prismicDom.RichText.asText(this.project.title) + ' | Nick Frost'
       document.title = title

@@ -8,9 +8,6 @@
         </transition>
       </router-view>
     </main>
-    <footer class="footer">
-      &copy;2012 - {{ new Date().getFullYear() }} Nick Frost
-    </footer>
   </div>
 </template>
 
@@ -18,46 +15,35 @@
 import SiteHeader from '@/components/SiteHeader'
 
 export default {
-  components: { SiteHeader }
+  components: { SiteHeader },
+  data () {
+    return {
+      footerDisplayed: true
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-.footer {
-  @apply text-xs p-6 pb-24 text-center;
+.main {
+  @apply pb-16;
 }
 
-.fade-left-enter-active,
-.fade-left-leave-active,
-.fade-right-enter-active,
-.fade-right-leave-active,
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
 }
 
-.fade-left-enter-from,
-.fade-left-leave-to,
-.fade-right-enter-from,
-.fade-right-leave-to,
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
 
-.fade-left-leave-to {
-  transform: translateX(-2rem);
+.fade-leave-to {
+  transform: translateX(-4rem);
 }
 
-.fade-left-enter-from {
-  transform: translateX(2rem);
-}
-
-.fade-right-leave-to {
-  transform: translateX(2rem);
-}
-
-.fade-right-enter-from {
-  transform: translateX(-2rem);
+.fade-enter-from {
+  transform: translateX(4rem);
 }
 </style>

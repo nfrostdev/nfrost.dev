@@ -3,34 +3,29 @@
     <div v-for="project in projects"
          :key="project.id"
          class="portfolio__project">
-      <transition name="fade-left" mode="in-out">
+      <router-link
+        :to="{ name: 'Project', params: {uid: project.uid } }"
+        class="portfolio__link--image">
+        <project-image :image="project.data.image" :title="project.data.title[0].text"/>
+      </router-link>
+      <div class="portfolio__container">
         <router-link
-          v-if="loaded"
           :to="{ name: 'Project', params: {uid: project.uid } }"
-          class="portfolio__link--image">
-          <project-image :image="project.data.image" :title="project.data.title[0].text"/>
-        </router-link>
-      </transition>
-      <transition name="fade-right" mode="in-out">
-        <div class="portfolio__container" v-if="loaded">
-          <router-link
-            :to="{ name: 'Project', params: {uid: project.uid } }"
-            class="portfolio__link">
-            <div class="portfolio__link__title" v-if="project.data.title">{{ project.data.title[0].text }}</div>
-            <div class="portfolio__link__client">
+          class="portfolio__link">
+          <div class="portfolio__link__title" v-if="project.data.title">{{ project.data.title[0].text }}</div>
+          <div class="portfolio__link__client">
         <span v-for="client in project.data.clients" :key="client.uid" class="portfolio__client">
           {{ client.client.data.name }}
         </span>
-            </div>
-          </router-link>
-
-          <div class="portfolio__link__technologies">
-            <technology-link v-for="technology in project.data.technologies"
-                             :key="technology.id"
-                             :technology="technology.technology"/>
           </div>
+        </router-link>
+
+        <div class="portfolio__link__technologies">
+          <technology-link v-for="technology in project.data.technologies"
+                           :key="technology.id"
+                           :technology="technology.technology"/>
         </div>
-      </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -47,7 +42,6 @@ export default {
   },
   data () {
     return {
-      loaded: false,
       projects: []
     }
   },
@@ -66,8 +60,6 @@ export default {
     ).then(response => {
       this.projects = response.results.sort((a, b) => a.first_publication_date < b.first_publication_date ? 1 : -1)
       setTimeout(() => {
-        this.loaded = true
-
         const title = 'Portfolio | Nick Frost'
         document.title = title
         document.querySelector('meta[property="og:title"]').setAttribute('content', title)
