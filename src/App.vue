@@ -31,7 +31,11 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.5s ease;
+  transition: all 70ms ease;
+
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
 }
 
 .fade-enter-from,
