@@ -1,5 +1,6 @@
 <template>
   <div v-if="projects.length" class="portfolio">
+    <h1 class="sr-only">Portfolio</h1>
     <div v-for="project in projects"
          :key="project.id"
          class="portfolio__project">
