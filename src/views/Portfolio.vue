@@ -60,6 +60,9 @@ export default {
       }
     ).then(response => {
       this.projects = response.results.sort((a, b) => a.first_publication_date < b.first_publication_date ? 1 : -1)
+      this.projects.forEach(project => {
+        project.data.technologies.sort((a, b) => a.technology.data.name > b.technology.data.name ? 1 : -1)
+      })
       setTimeout(() => {
         const title = 'Portfolio | Nick Frost'
         document.title = title

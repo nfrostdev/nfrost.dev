@@ -15,12 +15,7 @@
 import SiteHeader from '@/components/SiteHeader'
 
 export default {
-  components: { SiteHeader },
-  data () {
-    return {
-      footerDisplayed: true
-    }
-  }
+  components: { SiteHeader }
 }
 </script>
 
