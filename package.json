@@ -5,7 +5,6 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --modern",
-    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "sitemap": "vue-cli-service sitemap"
   },
@@ -19,11 +18,9 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-standard": "^5.1.2",
-    "@vue/test-utils": "^2.0.0-0",
     "autoprefixer": "^9.8.7",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
@@ -40,8 +37,7 @@
     "sass-loader": "^8.0.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16",
     "typescript": "~3.9.3",
-    "vue-cli-plugin-sitemap": "~2.3.0",
-    "vue-jest": "^5.0.0-0"
+    "vue-cli-plugin-sitemap": "~2.3.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
