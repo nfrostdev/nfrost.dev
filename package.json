@@ -5,8 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --modern",
-    "lint": "vue-cli-service lint",
-    "sitemap": "vue-cli-service sitemap"
+    "sitemap": "vue-cli-service sitemap",
+    "preinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -15,21 +15,10 @@
   },
   "devDependencies": {
     "@prismicio/client": "^5.1.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-standard": "^5.1.2",
     "autoprefixer": "^9.8.7",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^7.0.0",
-    "lint-staged": "^9.5.0",
     "postcss": "^7.0.38",
     "prerender-spa-plugin": "^3.4.0",
     "prismic-dom": "^2.2.6",
@@ -39,13 +28,7 @@
     "typescript": "~3.9.3",
     "vue-cli-plugin-sitemap": "~2.3.0"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
+  "resolutions": {
+    "set-value": "4.0.1"
   }
 }
