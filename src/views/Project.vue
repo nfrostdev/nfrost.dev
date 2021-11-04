@@ -53,17 +53,17 @@ export default {
   },
   mounted () {
     this.$prismic.getByUID('project', this.$route.params.uid.toString(),
-      {
-        fetchLinks: [
-          'client.name',
-          'contributor.name',
-          'contributor.link',
-          'language.name',
-          'technology.name',
-          'technology.link',
-          'technology.icon'
-        ]
-      }).then(response => {
+        {
+          fetchLinks: [
+            'client.name',
+            'contributor.name',
+            'contributor.link',
+            'language.name',
+            'technology.name',
+            'technology.link',
+            'technology.icon'
+          ]
+        }).then(response => {
       this.project = response.data
       this.project.technologies.sort((a, b) => a.technology.data.name > b.technology.data.name ? 1 : -1)
 

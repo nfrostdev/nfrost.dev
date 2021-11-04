@@ -5,14 +5,14 @@
          :key="project.id"
          class="portfolio__project">
       <router-link
-        :to="{ name: 'Project', params: {uid: project.uid } }"
-        class="portfolio__link--image">
+          :to="{ name: 'Project', params: {uid: project.uid } }"
+          class="portfolio__link--image">
         <project-image :image="project.data.image" :title="project.data.title[0].text"/>
       </router-link>
       <div class="portfolio__container">
         <router-link
-          :to="{ name: 'Project', params: {uid: project.uid } }"
-          class="portfolio__link">
+            :to="{ name: 'Project', params: {uid: project.uid } }"
+            class="portfolio__link">
           <div class="portfolio__link__title" v-if="project.data.title">{{ project.data.title[0].text }}</div>
           <div class="portfolio__link__client">
         <span v-for="client in project.data.clients" :key="client.uid" class="portfolio__client">
@@ -48,16 +48,16 @@ export default {
   },
   mounted () {
     this.$prismic.query(
-      Prismic.Predicates.at('document.type', 'project'),
-      {
-        fetchLinks:
-          [
-            'client.name',
-            'technology.name',
-            'technology.link',
-            'technology.icon'
-          ]
-      }
+        Prismic.Predicates.at('document.type', 'project'),
+        {
+          fetchLinks:
+              [
+                'client.name',
+                'technology.name',
+                'technology.link',
+                'technology.icon'
+              ]
+        }
     ).then(response => {
       this.projects = response.results.sort((a, b) => a.first_publication_date < b.first_publication_date ? 1 : -1)
       this.projects.forEach(project => {
