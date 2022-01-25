@@ -66,6 +66,7 @@ export default {
         }).then(response => {
       this.project = response.data
       this.project.technologies.sort((a, b) => a.technology.data.name > b.technology.data.name ? 1 : -1)
+      this.project.languages.sort((a, b) => a.language.data.name > b.language.data.name ? 1 : -1)
 
       const title = this.$prismicDom.RichText.asText(this.project.title) + ' | Nick Frost'
       document.title = title
