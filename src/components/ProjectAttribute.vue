@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import TechnologyLink from '@/components/TechnologyLink'
+import TechnologyLink from '@/components/TechnologyLink.vue'
 
 export default {
   components: { TechnologyLink },

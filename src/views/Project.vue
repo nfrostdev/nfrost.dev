@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import ProjectAttribute from '@/components/ProjectAttribute'
-import ProjectImage from '@/components/ProjectImage'
-import ProjectBodyColumn from '@/components/ProjectBodyColumn'
+import ProjectAttribute from '@/components/ProjectAttribute.vue'
+import ProjectImage from '@/components/ProjectImage.vue'
+import ProjectBodyColumn from '@/components/ProjectBodyColumn.vue'
 
 export default {
   components: {

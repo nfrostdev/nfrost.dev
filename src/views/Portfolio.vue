@@ -33,8 +33,8 @@
 
 <script>
 import Prismic from '@prismicio/client'
-import TechnologyLink from '@/components/TechnologyLink'
-import ProjectImage from '@/components/ProjectImage'
+import TechnologyLink from '@/components/TechnologyLink.vue'
+import ProjectImage from '@/components/ProjectImage.vue'
 
 export default {
   components: {

@@ -11,7 +11,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@master
         with:
-          node-version: '14'
+          node-version: '16'
       - name: Install NPM Dependencies
         run: npm install
       - name: Build Application
@@ -24,7 +24,7 @@ jobs:
         uses: foo-software/lighthouse-check-action@master
         id: lighthouseCheck
         with:
-          urls: 'https://www.nfrost.dev,https://www.nfrost.dev/kvcc-department-directory'
+          urls: 'https://www.nfrost.dev,https://www.nfrost.dev/kvcc-course-schedule'
       - name: Validate Lighthouse Check
         uses: foo-software/lighthouse-check-status-action@master
         with:
