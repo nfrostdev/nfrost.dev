@@ -25,5 +25,9 @@ export default {
       @apply mt-4;
     }
   }
+
+  ul {
+    @apply list-disc list-inside mt-2 mb-4 pl-2;
+  }
 }
 </style>

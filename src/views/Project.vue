@@ -46,12 +46,12 @@ export default {
     ProjectImage,
     ProjectAttribute
   },
-  data () {
+  data() {
     return {
       project: null
     }
   },
-  mounted () {
+  mounted() {
     this.$prismic.getByUID('project', this.$route.params.uid.toString(),
         {
           fetchLinks: [

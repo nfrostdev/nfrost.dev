@@ -31,7 +31,7 @@
 import TechnologyLink from '@/components/TechnologyLink.vue'
 
 export default {
-  components: { TechnologyLink },
+  components: {TechnologyLink},
   props: {
     title: String,
     plural: String,
